@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://rsydhkcsd53i"]
+
+[ext_resource type="Texture2D" uid="uid://cowi8edkbruss" path="res://images/santa_placeholder.png" id="1_2wumw"]
+[ext_resource type="Script" uid="uid://cfikawglpogp1" path="res://scripts/santa.gd" id="1_3hfj6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hfj6"]
+size = Vector2(715, 1747)
+
+[node name="Santa" type="CharacterBody2D"]
+script = ExtResource("1_3hfj6")
+
+[node name="SantaPlaceholder" type="Sprite2D" parent="."]
+scale = Vector2(0.24000025, 0.24000025)
+texture = ExtResource("1_2wumw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(18.999985, -0.9999981)
+scale = Vector2(0.24000025, 0.24000025)
+shape = SubResource("RectangleShape2D_3hfj6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(400, 0)
+zoom = Vector2(0.5, 0.5)
