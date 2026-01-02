@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc3eaxqwgbnfa"]
+
+[ext_resource type="Script" uid="uid://f7i04ilrjncs" path="res://place_progress.gd" id="1_3034w"]
+[ext_resource type="Texture2D" uid="uid://cvnxccugicaju" path="res://images/progress_bar.PNG" id="2_wqt8d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26lvn"]
+bg_color = Color(0.16948539, 0.08052782, 0.10115618, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6vuj"]
+bg_color = Color(0.8176881, 0, 0.14839488, 1)
+
+[node name="ProgressBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 456.0
+offset_bottom = 27.0
+script = ExtResource("1_3034w")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = -53.0
+offset_top = -20.0
+offset_right = 464.0
+offset_bottom = 57.0
+theme_override_styles/background = SubResource("StyleBoxFlat_26lvn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_n6vuj")
+value = 50.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(208, 33)
+scale = Vector2(0.21331674, 0.18662554)
+texture = ExtResource("2_wqt8d")
