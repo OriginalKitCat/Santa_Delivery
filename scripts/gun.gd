@@ -1,0 +1,32 @@
+extends Area2D    
+
+var bullet_path =preload("res://bullets.tscn")
+var timer: Timer
+var cooled_down: bool = true;
+
+func _ready() -> void:
+	timer = Timer.new()
+	add_child(timer)
+	
+	timer.wait_time = Data.weaponcooldown
+	timer.one_shot = true
+	timer.connect("timeout",  _on_timer_timeout)
+
+
+func _physics_process(_delta: float) -> void:
+	look_at(get_global_mouse_position())
+	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) && (cooled_down == true):
+		fire()
+		timer.start()
+		cooled_down=false
+		
+func fire():
+	var bullet=bullet_path.instantiate()
+	bullet.dir = rotation
+	bullet.pos = $Node2D.global_position  
+	bullet.rota = global_rotation
+	get_parent().add_child(bullet)
+
+
+func _on_timer_timeout() -> void:
+	cooled_down = true

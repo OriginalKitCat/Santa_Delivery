@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://fudlur58cqgy"]
+
+[ext_resource type="Texture2D" uid="uid://dj2oeopp1jij4" path="res://images/easy_snowman_placeholder.png" id="1_qpqnw"]
+[ext_resource type="Script" uid="uid://bis23iilnh0dh" path="res://easy_snowman.gd" id="1_rs81k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rs81k"]
+bg_color = Color(0.6316679, 0.0089129, 0.39375278, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6fci"]
+bg_color = Color(0.08186207, 0.53171337, 0.41750503, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rs81k"]
+radius = 59.07622
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qpqnw"]
+radius = 95.005264
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6fci"]
+size = Vector2(156, 31)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j5ept"]
+radius = 136.0588
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f6fci"]
+radius = 82.05486
+
+[node name="Easy Snowman" type="CharacterBody2D"]
+script = ExtResource("1_rs81k")
+
+[node name="Snowman_image" type="Sprite2D" parent="."]
+scale = Vector2(0.32000053, 0.32000053)
+texture = ExtResource("1_qpqnw")
+flip_h = true
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -138.0
+offset_top = -267.0
+offset_right = 142.0
+offset_bottom = -248.0
+theme_override_styles/background = SubResource("StyleBoxFlat_rs81k")
+theme_override_styles/fill = SubResource("StyleBoxFlat_f6fci")
+max_value = 10.0
+step = 1.0
+value = 5.0
+show_percentage = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(4, -47)
+shape = SubResource("CircleShape2D_rs81k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 75)
+shape = SubResource("CircleShape2D_qpqnw")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(3, 162)
+shape = SubResource("RectangleShape2D_f6fci")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 67)
+shape = SubResource("CircleShape2D_j5ept")
+debug_color = Color(0.7565656, 0.18898204, 0.99999994, 0.41960785)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, -47)
+shape = SubResource("CircleShape2D_f6fci")
+debug_color = Color(0.8479427, 0.18043917, 0.8059313, 0.41960785)
+metadata/_edit_group_ = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
