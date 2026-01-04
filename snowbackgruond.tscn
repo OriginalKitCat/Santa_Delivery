@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjwoiaax2u8nl"]
+
+[sub_resource type="Curve" id="Curve_aqjjw"]
+_data = [Vector2(0, 1), 0.0, -0.118651666, 0, 0, Vector2(1, 0), -2.9662936, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a5kjo"]
+curve = SubResource("Curve_aqjjw")
+
+[sub_resource type="Gradient" id="Gradient_aqjjw"]
+colors = PackedColorArray(1, 1, 1, 0.39215687, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a5kjo"]
+gradient = SubResource("Gradient_aqjjw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aqjjw"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(3, 3, 3)
+emission_shape = 3
+emission_box_extents = Vector3(100, 1, 100)
+gravity = Vector3(0, 45, 0)
+scale_min = 5.0
+scale_max = 15.0
+color_ramp = SubResource("GradientTexture1D_a5kjo")
+alpha_curve = SubResource("CurveTexture_a5kjo")
+turbulence_enabled = true
+turbulence_noise_strength = 0.08
+turbulence_noise_scale = 1.209
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.013
+turbulence_initial_displacement_min = -83.8
+turbulence_initial_displacement_max = 74.3
+
+[node name="Snow" type="GPUParticles2D"]
+position = Vector2(-186, 0)
+amount = 200
+lifetime = 10.25
+fixed_fps = 40
+process_material = SubResource("ParticleProcessMaterial_aqjjw")

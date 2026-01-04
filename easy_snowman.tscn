@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://fudlur58cqgy"]
+[gd_scene load_steps=12 format=3 uid="uid://fudlur58cqgy"]
 
 [ext_resource type="Texture2D" uid="uid://dj2oeopp1jij4" path="res://images/easy_snowman_placeholder.png" id="1_qpqnw"]
 [ext_resource type="Script" uid="uid://bis23iilnh0dh" path="res://easy_snowman.gd" id="1_rs81k"]
+[ext_resource type="PackedScene" uid="uid://dfie42sv23fyl" path="res://snowman_gun.tscn" id="3_f6fci"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rs81k"]
 bg_color = Color(0.6316679, 0.0089129, 0.39375278, 1)
@@ -23,6 +24,9 @@ radius = 136.0588
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f6fci"]
 radius = 82.05486
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_geyai"]
+radius = 924.00214
 
 [node name="Easy Snowman" type="CharacterBody2D"]
 script = ExtResource("1_rs81k")
@@ -56,18 +60,28 @@ shape = SubResource("CircleShape2D_qpqnw")
 position = Vector2(3, 162)
 shape = SubResource("RectangleShape2D_f6fci")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="bullet detect" type="Area2D" parent="."]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bullet detect"]
 position = Vector2(3, 67)
 shape = SubResource("CircleShape2D_j5ept")
 debug_color = Color(0.7565656, 0.18898204, 0.99999994, 0.41960785)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet detect"]
 position = Vector2(4, -47)
 shape = SubResource("CircleShape2D_f6fci")
 debug_color = Color(0.8479427, 0.18043917, 0.8059313, 0.41960785)
 metadata/_edit_group_ = true
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="AngryArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AngryArea2D"]
+shape = SubResource("CircleShape2D_geyai")
+
+[node name="Area2D" parent="." instance=ExtResource("3_f6fci")]
+position = Vector2(-126, -28.000004)
+
+[connection signal="body_entered" from="bullet detect" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="AngryArea2D" to="." method="_on_angry_area_2d_body_entered"]
+[connection signal="body_exited" from="AngryArea2D" to="." method="_on_angry_area_2d_body_exited"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfie42sv23fyl"]
+
+[ext_resource type="Texture2D" uid="uid://cj5gslyjhd7yj" path="res://images/stick_placeholder.png" id="1_8u0c6"]
+[ext_resource type="Script" uid="uid://dq7cxwbc4hs0c" path="res://snowman_gun.gd" id="1_jd02w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jd02w"]
+size = Vector2(2332, 157)
+
+[node name="Area2D" type="Area2D"]
+rotation = 0.12915437
+scale = Vector2(0.08766371, 0.08766371)
+script = ExtResource("1_jd02w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1130, 173)
+texture = ExtResource("1_8u0c6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1181, 65)
+rotation = 0.057868175
+shape = SubResource("RectangleShape2D_jd02w")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1611, 331)
+rotation = 0.057868175
+
+[node name="Timer" type="Timer" parent="."]

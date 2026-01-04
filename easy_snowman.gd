@@ -4,7 +4,8 @@ const run_speed = 600.0
 const jump_velocity = -600.0
 var direction = 1
 var health = 10
-
+var shoot_at_player = false
+var reloadtimer = randi() % 1 + 3
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready() -> void:
@@ -33,3 +34,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 func sethealthbar():
 	$HealthBar.value = health
+
+func _on_angry_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "Santa":
+		shoot_at_player = true
+
+func _on_angry_area_2d_body_exited(body: Node2D) -> void:
+	if body.name == "Santa":
+		shoot_at_player = false

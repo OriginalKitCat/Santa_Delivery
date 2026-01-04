@@ -11,7 +11,7 @@ height = 322.6442
 radius = 24.0
 height = 102.0
 
-[node name="bullets" type="CharacterBody2D"]
+[node name="bullets" type="Area2D"]
 script = ExtResource("1_daqjf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

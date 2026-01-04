@@ -6,6 +6,7 @@ extends Area2D
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Santa":
-		Data.was_killed = true;
-		Data.lives -= 1
+		Data.was_killed = true
+		Data.deathfade = true
+		Data.playerhealth -= 20
 		print("Santa entered.")

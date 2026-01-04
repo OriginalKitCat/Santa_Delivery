@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://044da0ar22ah"]
+
+[ext_resource type="Texture2D" uid="uid://dohxuohpblcje" path="res://images/Ramen.png" id="1_c1k4s"]
+[ext_resource type="Script" uid="uid://xjq1s16xdoqi" path="res://overview.gd" id="1_ne6cc"]
+[ext_resource type="Texture2D" uid="uid://cs207ws4segh0" path="res://images/mauszeiger.png" id="2_ne6cc"]
+[ext_resource type="FontFile" uid="uid://e03repxyiqgv" path="res://Fonts/cream-cake/Cream Cake.otf" id="3_cu8wc"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.24527688, 0.24527688)
+script = ExtResource("1_ne6cc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(842, 245)
+texture = ExtResource("1_c1k4s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(252.125, 247.125)
+scale = Vector2(0.25468603, 0.25468603)
+texture = ExtResource("2_ne6cc")
+
+[node name="caneNumber" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.05
+anchor_top = 0.025
+anchor_right = -0.05
+anchor_bottom = 0.025
+offset_left = 421.93356
+offset_top = 105.00265
+offset_right = 615.9336
+offset_bottom = 366.00266
+theme_override_fonts/font = ExtResource("3_cu8wc")
+theme_override_font_sizes/font_size = 260
+text = "55"
+horizontal_alignment = 1
+
+[node name="presentsDelivered" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.05
+anchor_top = 0.025
+anchor_right = -0.05
+anchor_bottom = 0.025
+offset_left = 951.94684
+offset_top = 109.07967
+offset_right = 1145.9469
+offset_bottom = 370.07968
+theme_override_fonts/font = ExtResource("3_cu8wc")
+theme_override_font_sizes/font_size = 260
+text = "55"
+horizontal_alignment = 1
+
+[node name="health" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.05
+anchor_top = 0.025
+anchor_right = -0.05
+anchor_bottom = 0.025
+offset_left = 1380.0344
+offset_top = 88.69455
+offset_right = 1574.0344
+offset_bottom = 349.69455
+theme_override_fonts/font = ExtResource("3_cu8wc")
+theme_override_font_sizes/font_size = 260
+text = "20"
+horizontal_alignment = 1

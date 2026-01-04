@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 var pos: Vector2
 var rota: float
@@ -6,6 +6,7 @@ var dir: float
 var speed = 2000
 var timer: Timer
 var touched = true
+var velocity: Vector2
 
 func _ready() -> void:
 	global_position = pos
@@ -18,11 +19,11 @@ func _ready() -> void:
 	timer.one_shot = true
 	timer.timeout.connect(self._on_timer_timeout)
 	timer.start()
+	
+	velocity = Vector2(speed, 0).rotated(dir)
 
-func _physics_process(_delta: float) -> void:
-	#if touched:
-		velocity = Vector2(speed, 0).rotated(dir)
-		move_and_slide()
+func _physics_process(delta: float) -> void:
+	global_position += velocity * delta
 	
 
 func _on_timer_timeout() -> void:

@@ -1,25 +1,20 @@
 extends Area2D    
 
-var bullet_path =preload("res://bullets.tscn")
+var bullet_path =preload("res://snowball_easy.tscn")
 var timer: Timer
-var cooled_down: bool = true;
 
 func _ready() -> void:
 	timer = Timer.new()
 	add_child(timer)
 	
-	timer.wait_time = Data.weaponcooldown
+	timer.wait_time = randfn(1.0, 3.0)
 	timer.one_shot = true
 	timer.connect("timeout",  _on_timer_timeout)
+	timer.start()
 
 
 func _physics_process(_delta: float) -> void:
-	look_at(get_global_mouse_position())
-	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) && (cooled_down == true) && Data.sugarcanecount > 0:
-		fire()
-		Data.sugarcanecount -= 1
-		timer.start()
-		cooled_down=false
+	look_at(Data.currentplayerpos) 
 		
 func fire():
 	var bullet=bullet_path.instantiate()
@@ -30,4 +25,6 @@ func fire():
 
 
 func _on_timer_timeout() -> void:
-	cooled_down = true
+	fire()
+	timer.start()
+	
