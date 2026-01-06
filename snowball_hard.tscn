@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdlpjjfn0ctn8"]
+
+[ext_resource type="Script" uid="uid://dob547k8ll66v" path="res://scripts/snowball_hard.gd" id="1_xsi68"]
+[ext_resource type="Texture2D" uid="uid://btddbt4ne36is" path="res://images/snowball_placeholder.png" id="2_6kl1x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nokug"]
+radius = 139.05754
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kdwyh"]
+radius = 203.64845
+
+[node name="Snowball_hard" type="Area2D"]
+scale = Vector2(0.34657282, 0.34657282)
+script = ExtResource("1_xsi68")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6kl1x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nokug")
+
+[node name="Attack_area" type="Area2D" parent="."]
+
+[node name="Attack area collision shape" type="CollisionShape2D" parent="Attack_area"]
+shape = SubResource("CircleShape2D_kdwyh")
+debug_color = Color(0.879983, 0.00037041426, 0.82462966, 0.41960785)
+
+[connection signal="body_entered" from="Attack_area" to="." method="_on_attack_area_body_entered"]

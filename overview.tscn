@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://044da0ar22ah"]
+[gd_scene load_steps=7 format=3 uid="uid://044da0ar22ah"]
 
 [ext_resource type="Texture2D" uid="uid://dohxuohpblcje" path="res://images/Ramen.png" id="1_c1k4s"]
 [ext_resource type="Script" uid="uid://xjq1s16xdoqi" path="res://overview.gd" id="1_ne6cc"]
 [ext_resource type="Texture2D" uid="uid://cs207ws4segh0" path="res://images/mauszeiger.png" id="2_ne6cc"]
 [ext_resource type="FontFile" uid="uid://e03repxyiqgv" path="res://Fonts/cream-cake/Cream Cake.otf" id="3_cu8wc"]
+[ext_resource type="Texture2D" uid="uid://c6vci2x8k878e" path="res://images/present_icon.png" id="4_cu8wc"]
+[ext_resource type="Texture2D" uid="uid://de7ljmncml6kg" path="res://images/Unbenanntes_Projekt 4.png" id="5_8tl5t"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -21,6 +23,16 @@ texture = ExtResource("1_c1k4s")
 position = Vector2(252.125, 247.125)
 scale = Vector2(0.25468603, 0.25468603)
 texture = ExtResource("2_ne6cc")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(839.8671, 252.77556)
+scale = Vector2(0.35322726, 0.35322726)
+texture = ExtResource("4_cu8wc")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(1276.1089, 236.46745)
+scale = Vector2(0.2367399, 0.2367399)
+texture = ExtResource("5_8tl5t")
 
 [node name="caneNumber" type="Label" parent="."]
 layout_mode = 1

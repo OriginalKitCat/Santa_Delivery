@@ -15,6 +15,8 @@ func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("place_parcel"):
+		Data.go_transparency_down = true
 	if Input.is_action_pressed("place_parcel") and body_next_to_chimney and not alreadyPlaced:
 		if Input.is_action_just_pressed("place_parcel"):
 			Data.go_transparency_down = true
@@ -25,6 +27,7 @@ func _physics_process(delta: float) -> void:
 			Data.place_timer = time_pressed
 
 		elif not timerstarted:
+			Data.go_transparency_down = true
 			timer.start()
 			Data.presentsDelivered += 1
 			alreadyPlaced = true

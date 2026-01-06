@@ -1,13 +1,13 @@
 extends Area2D    
 
-var bullet_path =preload("res://snowball_easy.tscn")
+var bullet_path =preload("res://snowball_hard.tscn")
 var timer: Timer
 
 func _ready() -> void:
 	timer = Timer.new()
 	add_child(timer)
 	
-	timer.wait_time = randfn(1.0, 3.0)
+	timer.wait_time = randfn(4, 6.5)
 	timer.one_shot = true
 	timer.connect("timeout",  _on_timer_timeout)
 	timer.start()

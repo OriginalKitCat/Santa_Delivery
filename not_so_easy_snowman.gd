@@ -3,7 +3,7 @@ extends CharacterBody2D
 const run_speed = 600.0
 const jump_velocity = -600.0
 var direction = 1
-var health = 10
+var health = 40
 var shoot_at_player = false
 var reloadtimer = randi() % 1 + 3
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -16,6 +16,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 	movetoplayer()
 	move_and_slide()
+	$HealthBar.value = health
 
 func movetoplayer():
 	if Data.currentplayerpos.x < global_position.x:
@@ -38,15 +39,18 @@ func sethealthbar():
 func _on_angry_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Santa":
 		shoot_at_player = true
+	$HealthBar.value = health
 
 func _on_angry_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Santa":
 		shoot_at_player = false
+	$HealthBar.value = health
 
 func _on_bullet_detect_body_entered(body: Node2D) -> void:
 	if body.name == "bullets":
 		health -= Data.bullet_damage
 		sethealthbar()
+	$HealthBar.value = health
 	if health <= 0:
 		queue_free()
 
@@ -54,5 +58,6 @@ func _on_bullet_detect_area_entered(area: Area2D) -> void:
 	if area.name == "bullets":
 		health -= Data.bullet_damage
 		sethealthbar()
+	$HealthBar.value = health
 	if health <= 0:
 		queue_free()

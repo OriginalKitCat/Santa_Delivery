@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://fudlur58cqgy"]
+[gd_scene load_steps=12 format=3 uid="uid://b34ym6tgn0oxo"]
 
-[ext_resource type="Script" uid="uid://bis23iilnh0dh" path="res://easy_snowman.gd" id="1_rs81k"]
-[ext_resource type="Texture2D" uid="uid://qejp4vjbcqmw" path="res://images/snowman/Unbenanntes_Projekt.png" id="2_f6fci"]
-[ext_resource type="PackedScene" uid="uid://dfie42sv23fyl" path="res://snowman_gun.tscn" id="3_f6fci"]
+[ext_resource type="Script" uid="uid://djlanifsx6hlk" path="res://not_so_easy_snowman.gd" id="1_gwep2"]
+[ext_resource type="Texture2D" uid="uid://qejp4vjbcqmw" path="res://images/snowman/Unbenanntes_Projekt.png" id="2_gwep2"]
+[ext_resource type="PackedScene" uid="uid://n4tvcwmytiud" path="res://big_snowman_gun.tscn" id="3_gwep2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rs81k"]
 bg_color = Color(0.6316679, 0.0089129, 0.39375278, 1)
@@ -11,64 +11,66 @@ bg_color = Color(0.6316679, 0.0089129, 0.39375278, 1)
 bg_color = Color(0.08186207, 0.53171337, 0.41750503, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rs81k"]
-radius = 62.03225
+radius = 64.801956
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qpqnw"]
-radius = 102.0049
+radius = 96.85398
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6fci"]
-size = Vector2(156, 31)
+size = Vector2(183.00308, 31)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j5ept"]
 radius = 136.0588
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f6fci"]
-radius = 82.05486
+radius = 85.69737
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_geyai"]
 radius = 924.00214
 
-[node name="Easy Snowman" type="CharacterBody2D"]
-script = ExtResource("1_rs81k")
+[node name="Not_So_Easy_Snowman" type="CharacterBody2D"]
+scale = Vector2(1.868821, 1.868821)
+script = ExtResource("1_gwep2")
 
 [node name="Snowman_image" type="Sprite2D" parent="."]
 scale = Vector2(0.32000053, 0.32000053)
-texture = ExtResource("2_f6fci")
+texture = ExtResource("2_gwep2")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -138.0
-offset_top = -267.0
-offset_right = 142.0
-offset_bottom = -248.0
+offset_left = -134.84438
+offset_top = -161.5992
+offset_right = 145.15562
+offset_bottom = -142.5992
 theme_override_styles/background = SubResource("StyleBoxFlat_rs81k")
 theme_override_styles/fill = SubResource("StyleBoxFlat_f6fci")
-max_value = 10.0
+max_value = 40.0
 step = 1.0
 value = 5.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-4, -61)
+position = Vector2(-4.815871, -58.325542)
 shape = SubResource("CircleShape2D_rs81k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 91)
+position = Vector2(1.0701935, 84.010185)
 shape = SubResource("CircleShape2D_qpqnw")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(3, 162)
+position = Vector2(1.0701945, 164.80978)
 shape = SubResource("RectangleShape2D_f6fci")
 
 [node name="bullet detect" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="bullet detect"]
-position = Vector2(2, 94)
+position = Vector2(3.2105803, 88.29096)
 shape = SubResource("CircleShape2D_j5ept")
 debug_color = Color(0.7565656, 0.18898204, 0.99999994, 0.41960785)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bullet detect"]
-position = Vector2(-3, -61)
+position = Vector2(-4.8158703, -57.790447)
 shape = SubResource("CircleShape2D_f6fci")
 debug_color = Color(0.8479427, 0.18043917, 0.8059313, 0.41960785)
 metadata/_edit_group_ = true
@@ -78,8 +80,8 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AngryArea2D"]
 shape = SubResource("CircleShape2D_geyai")
 
-[node name="Area2D" parent="." instance=ExtResource("3_f6fci")]
-position = Vector2(-2.861023e-06, 59.999996)
+[node name="Area2D" parent="." instance=ExtResource("3_gwep2")]
+position = Vector2(-0.53509617, 79.194305)
 
 [connection signal="area_entered" from="bullet detect" to="." method="_on_bullet_detect_area_entered"]
 [connection signal="body_entered" from="bullet detect" to="." method="_on_bullet_detect_body_entered"]

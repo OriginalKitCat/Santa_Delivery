@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvacnfbf7gapk"]
+
+[ext_resource type="Texture2D" uid="uid://c24rsvmnxpsa2" path="res://images/Roof_2.png" id="1_ervhb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_la1hy"]
+size = Vector2(675.4166, 574)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65el0"]
+size = Vector2(313.3333, 276.66666)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ervhb"]
+size = Vector2(551.1356, 157.0842)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ev7c"]
+size = Vector2(878.75024, 704.0001)
+
+[node name="roof" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(112, -15)
+scale = Vector2(0.5218548, 0.5218548)
+texture = ExtResource("1_ervhb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(572.25, 169)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("RectangleShape2D_la1hy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(48, -154)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("RectangleShape2D_65el0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(663, -151.00002)
+rotation = 0.26041538
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_ervhb")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(151.00003, -218)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_ervhb")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(-200, 194)
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_6ev7c")
