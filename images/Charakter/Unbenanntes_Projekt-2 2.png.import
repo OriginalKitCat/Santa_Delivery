@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://donxcb8gswlr3"
-path="res://.godot/imported/Unbenanntes_Projekt-2.png-563a4cdfe78e58b6823c17ef899435ba.ctex"
+uid="uid://ctphx6i08dnch"
+path="res://.godot/imported/Unbenanntes_Projekt-2 2.png-6659049ff9abf6ac316201a575a7fdb0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Charakter/Charakter /Unbenanntes_Projekt-2.png"
-dest_files=["res://.godot/imported/Unbenanntes_Projekt-2.png-563a4cdfe78e58b6823c17ef899435ba.ctex"]
+source_file="res://images/Charakter/Unbenanntes_Projekt-2 2.png"
+dest_files=["res://.godot/imported/Unbenanntes_Projekt-2 2.png-6659049ff9abf6ac316201a575a7fdb0.ctex"]
 
 [params]
 

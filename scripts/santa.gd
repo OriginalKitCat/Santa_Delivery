@@ -31,9 +31,14 @@ func _physics_process(delta: float) -> void:
 	if direction != 0:
 		velocity.x = direction * run_speed
 		$SantaPlaceholder.flip_h = (direction == -1)
+		$AnimatedSprite2D.flip_h = (direction == -1)
+		$AnimatedSprite2D.rotation = direction * -6.2
+		if is_on_floor():
+			$AnimatedSprite2D.play("walking")
 		gunflip(direction)
 	else:
 		velocity.x = move_toward(velocity.x, 0, run_speed)
+		$AnimatedSprite2D.stop()
 	move_and_slide()
 
 func gunflip(rectanglefood: int) -> void:

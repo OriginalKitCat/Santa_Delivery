@@ -1,23 +1,91 @@
-[gd_scene load_steps=5 format=3 uid="uid://rsydhkcsd53i"]
+[gd_scene load_steps=18 format=3 uid="uid://rsydhkcsd53i"]
 
 [ext_resource type="Texture2D" uid="uid://cowi8edkbruss" path="res://images/santa_placeholder.png" id="1_2wumw"]
 [ext_resource type="Script" uid="uid://cfikawglpogp1" path="res://scripts/santa.gd" id="1_3hfj6"]
 [ext_resource type="PackedScene" uid="uid://c0nb2l3qnonq1" path="res://gun.tscn" id="3_3puxy"]
+[ext_resource type="Texture2D" uid="uid://ode8qm8y0fj3" path="res://images/Charakter/Unbenanntes_Projekt-1 2.png" id="4_244u7"]
+[ext_resource type="Texture2D" uid="uid://ctphx6i08dnch" path="res://images/Charakter/Unbenanntes_Projekt-2 2.png" id="5_cl0wp"]
+[ext_resource type="Texture2D" uid="uid://b0np0pqgq67q3" path="res://images/Charakter/Unbenanntes_Projekt-3 2.png" id="6_drkku"]
+[ext_resource type="Texture2D" uid="uid://dhforunf4kss" path="res://images/Charakter/Unbenanntes_Projekt-4 2.png" id="7_3tro7"]
+[ext_resource type="Texture2D" uid="uid://dkjl76rqpfx48" path="res://images/Charakter/Unbenanntes_Projekt-5 2.png" id="8_1o7eu"]
+[ext_resource type="Texture2D" uid="uid://defbqubc0ddgk" path="res://images/Charakter/Unbenanntes_Projekt-6 2.png" id="9_0pabg"]
+[ext_resource type="Texture2D" uid="uid://com7vjv81r1hg" path="res://images/Charakter/Unbenanntes_Projekt-7 2.png" id="10_5xvs3"]
+[ext_resource type="Texture2D" uid="uid://c0ox5ve7pdc8e" path="res://images/Charakter/Unbenanntes_Projekt-8 2.png" id="11_g3331"]
+[ext_resource type="Texture2D" uid="uid://bsq2je622wlpx" path="res://images/Charakter/Unbenanntes_Projekt-9 2.png" id="12_470c7"]
+[ext_resource type="Texture2D" uid="uid://c7iabgkmhgvv1" path="res://images/Charakter/Unbenanntes_Projekt-10 2.png" id="13_3hq1q"]
+[ext_resource type="Texture2D" uid="uid://2kp31sjpp8om" path="res://images/Charakter/Unbenanntes_Projekt-11 2.png" id="14_u6xhl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8y83"]
+animations = [{
+"frames": [{
+"duration": 0.21,
+"texture": ExtResource("4_244u7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cl0wp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_drkku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3tro7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1o7eu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0pabg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5xvs3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_g3331")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_470c7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3hq1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_u6xhl")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 31.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hfj6"]
-size = Vector2(715, 1747)
+size = Vector2(454.16623, 1636.7488)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_244u7"]
+size = Vector2(81.5, 93.5)
 
 [node name="Santa" type="CharacterBody2D"]
 script = ExtResource("1_3hfj6")
 
 [node name="SantaPlaceholder" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.24000025, 0.24000025)
 texture = ExtResource("1_2wumw")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(43.000004, -33)
+rotation = 0.108079985
+scale = Vector2(0.2800003, 0.2800003)
+sprite_frames = SubResource("SpriteFrames_e8y83")
+animation = &"walking"
+frame_progress = 0.8971282
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(18.999985, -0.9999981)
+position = Vector2(5.499998, 29.410057)
 scale = Vector2(0.24000025, 0.24000025)
 shape = SubResource("RectangleShape2D_3hfj6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-15.75, -209.75)
+shape = SubResource("RectangleShape2D_244u7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(400, 0)
