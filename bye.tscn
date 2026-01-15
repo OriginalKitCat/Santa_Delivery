@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr3ov81ay646y"]
+
+[ext_resource type="Script" uid="uid://dn2tj6y2en71q" path="res://welcome.gd" id="1_2iwgh"]
+[ext_resource type="Texture2D" uid="uid://b3trwb8k4gcov" path="res://images/Unbenanntes_Projekt.png" id="2_jfpss"]
+[ext_resource type="FontFile" uid="uid://e03repxyiqgv" path="res://Fonts/cream-cake/Cream Cake.otf" id="3_4gtfh"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2iwgh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -1887.0
+offset_top = -1159.0
+offset_right = 2258.0
+offset_bottom = 1251.0
+color = Color(0, 0, 0, 0.7372549)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4400003, 0.4400003)
+texture = ExtResource("2_jfpss")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -286.0
+offset_top = -371.0
+offset_right = 304.0
+offset_bottom = -230.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4gtfh")
+theme_override_font_sizes/font_size = 140
+text = "Santa Delivery"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = -133.0
+offset_top = 192.0
+offset_right = 156.0
+offset_bottom = 273.0
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/icon_hover_color = Color(1, 0.27450982, 1, 1)
+text = " "
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -310.0
+offset_top = -216.0
+offset_right = 336.0
+offset_bottom = 201.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4gtfh")
+theme_override_font_sizes/font_size = 56
+text = "It is chismas night and you have to deliver
+the last presents. Unfortunately there are
+some snowmans who want to steal the
+childrens' presents. Shoot with mouse click,
+move with WASD or ARROW KEYS,
+place parcels with F next to a chimney. 
+
+Begin Adventure"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

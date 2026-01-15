@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://birtcthshmer7"]
+
+[ext_resource type="Script" uid="uid://d4ietslpwk1oh" path="res://real_death_fade_in_out.gd" id="1_gbhfr"]
+
+[node name="death_fadin_fadout" type="ColorRect"]
+offset_right = 1205.0
+offset_bottom = 725.0
+color = Color(0.16862746, 0.08235294, 0.101960786, 1)
+script = ExtResource("1_gbhfr")

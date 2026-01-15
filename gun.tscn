@@ -1,27 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0nb2l3qnonq1"]
+[gd_scene load_steps=5 format=3 uid="uid://c0nb2l3qnonq1"]
 
 [ext_resource type="Script" uid="uid://bvtgp1hfxqywf" path="res://scripts/gun.gd" id="1_kw0bs"]
-[ext_resource type="Texture2D" uid="uid://bkqv5mmp0ataj" path="res://images/icon.jpg" id="1_vk1bi"]
+[ext_resource type="Texture2D" uid="uid://b2ni8e5sv7pgn" path="res://images/Charakter/Unbenanntes_Projekt.png" id="2_dk5gl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk1bi"]
-size = Vector2(508, 495.6667)
+size = Vector2(462.82764, 338.77393)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw0bs"]
+size = Vector2(84, 28)
 
 [node name="Gun" type="Area2D"]
+position = Vector2(45, 59)
 script = ExtResource("1_kw0bs")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.31762588, 0.13399842)
-texture = ExtResource("1_vk1bi")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.4453125)
-scale = Vector2(0.31762588, 0.13399842)
+position = Vector2(33.55655, 38.249996)
+rotation = 0.8676446
+scale = Vector2(0.3176259, 0.13399842)
 shape = SubResource("RectangleShape2D_vk1bi")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(114.55655, 85.25)
+shape = SubResource("RectangleShape2D_kw0bs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(165.55655, 75.25)
+rotation = -0.41193658
+shape = SubResource("RectangleShape2D_kw0bs")
+
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(157.00002, 0)
+position = Vector2(202.55656, 58.249996)
 scale = Vector2(0.31762588, 0.31762588)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(87.55655, 46.25)
+scale = Vector2(0.26943466, 0.26943463)
+texture = ExtResource("2_dk5gl")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

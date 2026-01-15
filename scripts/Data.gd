@@ -12,7 +12,8 @@ var place_timer = 0.0
 var timeToPlace = 3.0
 var place_bar_needed = false
 var presentsDelivered = 0
-var deathfade = false
+var deathfade_begin = false
+var deathfade_end = false
 var easysnowman_damage = 3
 
 var currentplayerpos

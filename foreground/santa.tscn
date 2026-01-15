@@ -92,4 +92,5 @@ offset = Vector2(400, 0)
 zoom = Vector2(0.6, 0.6)
 
 [node name="Gun" parent="." instance=ExtResource("3_3puxy")]
-position = Vector2(156, -162)
+position = Vector2(-1.9999962, -124)
+scale = Vector2(0.8799997, 0.8799997)

@@ -11,4 +11,7 @@ script = ExtResource("1_sdten")
 scale = Vector2(12.5, 12.5)
 shape = SubResource("RectangleShape2D_rentr")
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

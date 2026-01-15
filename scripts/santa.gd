@@ -3,8 +3,12 @@ extends CharacterBody2D
 const run_speed = 600.0
 const jump_velocity = -600.0
 
-var gun_towards_right = Vector2(156, -162)
-var gun_towards_left = Vector2(-156, -162)  # Adjust the left gun position to be flipped horizontally
+var gun_towards_right = Vector2(-2, -124)
+var gun_towards_left = Vector2(90, -124)  # Adjust the left gun position to be flipped horizontally
+var coll_shape_1_to_r = Vector2(5.5, 29.41)
+var coll_shape_2_to_r = Vector2(-15.75, -209.75)
+var coll_shape_1_to_l = Vector2(73, 29.41)
+var coll_shape_2_to_l = Vector2(100, -209.75)
 var direction
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -36,16 +40,22 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			$AnimatedSprite2D.play("walking")
 		gunflip(direction)
+		if direction == 1:
+			$CollisionShape2D.position = coll_shape_1_to_r
+			$CollisionShape2D2.position = coll_shape_2_to_r
+		else:
+			$CollisionShape2D.position = coll_shape_1_to_l
+			$CollisionShape2D2.position = coll_shape_2_to_l
 	else:
 		velocity.x = move_toward(velocity.x, 0, run_speed)
 		$AnimatedSprite2D.stop()
 	move_and_slide()
 
 func gunflip(rectanglefood: int) -> void:
-	var gun_sprite = $Gun.get_node("Sprite2D")
+	#var gun_sprite = $Gun.get_node("Sprite2D")
 	if rectanglefood == 1:
 		$Gun.position = gun_towards_right
-		gun_sprite.flip_v = false
+		$Gun.scale.x = 1
 	elif rectanglefood == -1:
 		$Gun.position = gun_towards_left
-		gun_sprite.flip_v = true
+		$Gun.scale.x = -1

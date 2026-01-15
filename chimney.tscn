@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7vhtqre0rh7w"]
 
-[ext_resource type="Texture2D" uid="uid://c1jk5fckb6j5t" path="res://images/chimney_placeholder.png" id="1_5kd4s"]
 [ext_resource type="Script" uid="uid://4he52hx212q1" path="res://scripts/chimney.gd" id="1_8wnls"]
+[ext_resource type="Texture2D" uid="uid://cn6wpsiqv1ex0" path="res://images/chimney.png" id="2_8wnls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kd4s"]
 size = Vector2(138, 164)
@@ -13,8 +13,9 @@ size = Vector2(237, 178.5)
 script = ExtResource("1_8wnls")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.20685174, 0.20685174)
-texture = ExtResource("1_5kd4s")
+position = Vector2(21, -24)
+scale = Vector2(0.12685235, 0.12685235)
+texture = ExtResource("2_8wnls")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 8)
